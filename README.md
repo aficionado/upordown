@@ -38,16 +38,16 @@ Predicting whether a stock will go up or down using data from [Quandl](http://ww
 
 * [Dataset](https://bigml.com/shared/dataset/zy156fHO5woBGSbTuNeJbkg3htM)
 
-<img src="https://raw.github.com/aficionado/nextactivity/master/images/dataset.png" alt="Dataset">
+<img src="https://raw.github.com/aficionado/upordown/master/images/dataset.png" alt="Dataset">
 
 * [Model](https://bigml.com/shared/model/jQNDNqxcSDsfKmQp10cIEXV2Jb7)
 
-<img src="https://raw.github.com/aficionado/nextactivity/master/images/sunburst.png" alt="Sunburst">
+<img src="https://raw.github.com/aficionado/upordown/master/images/sunburst.png" alt="Sunburst">
 
 * [Single model evaluation](https://bigml.com/shared/evaluation/oQttuHuCiJ0DW01ai1OsVrsGvww)
 
-<img src="https://raw.github.com/aficionado/nextactivity/master/images/confusion_matrix_model.png" alt="Single model evaluation">
+<img src="https://raw.github.com/aficionado/upordown/master/images/confusion_matrix_model.png" alt="Single model evaluation">
 
 * [Ensemble evaluation](https://bigml.com/shared/evaluation/3w8Baa5yb5sHliJzHMSZJ2PplW8)
 
-<img src="https://raw.github.com/aficionado/nextactivity/master/images/confusion_matrix_ensemble.png" alt="Ensemble evaluation">
+<img src="https://raw.github.com/aficionado/upordown/master/images/confusion_matrix_ensemble.png" alt="Ensemble evaluation">
