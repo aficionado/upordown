@@ -1,10 +1,7 @@
 Up or Down?
 ===========
 
-Predicting whether a stock will go up or down using BigML and data from Quandl
-and PsychSignal
-
-Predicting whether a stock will go up or down using data from [Quandl](http://www.quandl.com/) and ([PsychSignal](https://psychsignal.com/).
+Predicting whether a stock will go up or down using data from [Quandl](http://www.quandl.com/) and [PsychSignal](https://psychsignal.com/).
 
 ## Analyzing the data
 
