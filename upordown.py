@@ -34,7 +34,7 @@ import glob
 from bigml.api import BigML
 
 from utils import log, training_test_split, previous
-from utils import share_dataset, share_model, share_evaluation
+from utils import share_resource
 
 
 def daily_change():
@@ -168,10 +168,10 @@ def main(args=sys.argv[1:]):
     # Create private links
     if args.share:
         log("Sharing resources...")
-        dataset_link = share_dataset(api, multi_dataset)
-        model_link = share_model(api, model)
-        evaluation_model_link = share_evaluation(api, evaluation_model)
-        evaluation_ensemble_link = share_evaluation(api, evaluation_ensemble)
+        dataset_link = share_resource(api, multi_dataset)
+        model_link = share_resource(api, model)
+        evaluation_model_link = share_resource(api, evaluation_model)
+        evaluation_ensemble_link = share_resource(api, evaluation_ensemble)
         log(dataset_link)
         log(model_link)
         log(evaluation_model_link)
