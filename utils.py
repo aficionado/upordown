@@ -21,7 +21,8 @@
 
 """
 
-from bigmler.utils import log_message, dated
+from bigmler.utils import log_message, dated, is_shared
+from bigml.api import get_resource_type
 
 
 def log(message):
@@ -58,31 +59,30 @@ def previous(field):
     return ["f", field, -1]
 
 
-def share_dataset(api, dataset):
-    """Creates a secret link to share `dataset`.
+def get_updater(api, resource_type):
+    """Returns the method to update a given resource type
 
     """
-    dataset = api.update_dataset(dataset, {"shared": True})
-    if api.ok(dataset):
-        return ("https://bigml.com/shared/dataset/%s" %
-                dataset['object']['shared_hash'])
+    updaters = {
+        "source": api.update_source,
+        "dataset": api.update_dataset,
+        "model": api.update_model,
+        "ensemble": api.update_ensemble,
+        "batchprediction": api.update_batch_prediction,
+        "prediction": api.update_prediction,
+        "evaluation": api.update_evaluation
+    }
+    return updaters[resource_type]
 
 
-def share_model(api, model):
-    """Creates a secret link to share `model`.
-
-    """
-    model = api.update_model(model, {"shared": True})
-    if api.ok(model):
-        return ("https://bigml.com/shared/model/%s" %
-                model['object']['shared_hash'])
-
-
-def share_evaluation(api, evaluation):
-    """Creates a secret link to share `evaluation`.
+def share_resource(api, resource):
+    """Creates a secret link to share the resource.
 
     """
-    evaluation = api.update_evaluation(evaluation, {"shared": True})
-    if api.ok(evaluation):
-        return ("https://bigml.com/shared/evaluation/%s" %
-                evaluation['object']['shared_hash'])
+    resource_type = get_resource_type(resource)
+    resource = get_updater(api, resource_type)(resource, {"shared": True})
+    if api.ok(resource) and is_shared(resource):
+        return ("https://bigml.com/shared/%s/%s" %
+                (resource_type, resource['object']['shared_hash']))
+    else:
+        sys.exit("Failed to share the resource: %s" % resource['resource'])
